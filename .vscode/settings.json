@@ -1,0 +1,9 @@
+{
+	"java.configuration.updateBuildConfiguration": "interactive",
+	"java.format.settings.url": "eclipse-formatter.xml",
+	"[java]": {
+		"editor.tabSize": 4,
+		"editor.detectIndentation": false
+	},
+	"cSpell.ignoreWords": ["cspace"]
+}
