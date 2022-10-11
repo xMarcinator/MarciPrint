@@ -1,7 +1,6 @@
 package com.marcinator;
 
 import com.marcinator.prettyprint.*;
-import com.marcinator.prettyprint.V2.ColorAttribute;
 
 import java.awt.Color;
 
@@ -11,18 +10,12 @@ import java.awt.Color;
  */
 public class App {
 	public static void main(String[] args) {
-		// Color textColor = new Color("#4CAF50");
-		// PrettyPrint pretty = new PrettyPrint();
+		PrettyColor textColor = new PrettyColor("#4CAF50");
+		PrettyPrint pretty = new PrettyPrint(textColor);
 
-		// pretty.setBold(true)
-		// .print("Hello")
-		// .setBold(false)
-		// .print(" world");
-
-		Color foo = Color.decode("#2CC846");
-
-		ColorAttribute attribute = new ColorAttribute(foo);
-
-		System.out.println(attribute.getAttribute());
+		pretty.setBold(true)
+				.print("Hello")
+				.setBold(false)
+				.print(" world");
 	}
 }

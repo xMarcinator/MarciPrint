@@ -1,4 +1,4 @@
-package com.marcinator.prettyprint.V1;
+package com.marcinator.prettyprint;
 
 // TODO support other ansi commands
 // TODO add object pretty printing

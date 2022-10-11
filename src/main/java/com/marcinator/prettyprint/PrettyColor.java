@@ -1,4 +1,4 @@
-package com.marcinator.prettyprint.V1;
+package com.marcinator.prettyprint;
 
 import com.marcinator.prettyprint.utils.MathExtension;
 
