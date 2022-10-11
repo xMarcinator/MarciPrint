@@ -1,4 +1,4 @@
-package com.marcinator.prettyprint.V2;
+package com.marcinator.prettyprint;
 
 import java.util.Collections;
 import java.util.Set;

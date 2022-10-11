@@ -1,4 +1,4 @@
-package com.marcinator.prettyprint.V2;
+package com.marcinator.prettyprint;
 
 import java.awt.Color;
 import java.awt.color.ColorSpace;

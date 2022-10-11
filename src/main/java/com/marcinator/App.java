@@ -1,7 +1,6 @@
 package com.marcinator;
 
 import com.marcinator.prettyprint.*;
-import com.marcinator.prettyprint.V2.ColorAttribute;
 
 import java.awt.Color;
 
