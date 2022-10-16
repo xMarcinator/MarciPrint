@@ -1,9 +1,0 @@
-com\marcinator\App.class
-com\marcinator\prettyprint\PrettyColor2.class
-com\marcinator\prettyprint\CMDAttributes.class
-com\marcinator\prettyprint\utils\MatrixHelper.class
-com\marcinator\prettyprint\IPrettyPrintable.class
-com\marcinator\prettyprint\CMDAttribute.class
-com\marcinator\prettyprint\ColorAttribute.class
-com\marcinator\prettyprint\utils\MathExtension.class
-com\marcinator\prettyprint\PrettyPrintV2.class
