@@ -3,6 +3,7 @@ package com.marcinator;
 import com.marcinator.prettyprint.*;
 
 import java.awt.Color;
+import com.aventrix.jnanoid.jnanoid.*;
 
 /**
  * Hello world!
