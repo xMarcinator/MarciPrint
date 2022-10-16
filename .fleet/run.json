@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "type": "maven",
+      "name": "Hello",
+      "tasks": [
+        "install"
+      ]
+    },
+    {
+      "type": "maven-run",
+      "name": "Run color",
+      "mainClass": "com.marcinator.App",
+
+    }
+  ]
+}
