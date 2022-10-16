@@ -1,11 +1,10 @@
 package com.marcinator.prettyprint;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Set;
-
-interface CMDAttribute {
-	String getAttribute();
-}
 
 // TODO support other ansi commands
 // TODO add object pretty printing
@@ -21,17 +20,36 @@ public class PrettyPrintV2 {
 	private String foreground;
 	private String background;
 
-	private Set<CMDAttribute> attributes;
+	private ArrayList<CMDAttribute> attributes;
 
 	private String cache;
 
 	// region attribute helpers
 	public void addAttribute(CMDAttribute attribute) {
-		attributes.add(attribute);
+		if (attribute instanceof ColorAttribute) {
+
+		} else {
+			attributes.add(attribute);
+		}
+
 		updateAttributeCache();
 	}
 
 	public void addAttributes(CMDAttribute... attribute) {
+		Iterator<CMDAttribute> iter = attributes.iterator();
+
+		while (iter.hasNext()) {
+			CMDAttribute existingAttribute = iter.next();
+
+			for (CMDAttribute newAttribute : attribute) {
+
+                if (newAttribute.attributeMatch(existingAttribute)) {
+					iter.remove();
+				}
+			}
+
+		}
+
 		Collections.addAll(attributes, attribute);
 		updateAttributeCache();
 	}
@@ -49,8 +67,9 @@ public class PrettyPrintV2 {
 	}
 
 	private void updateAttributeCache() {
+		cache = "";
 		for (CMDAttribute cmdAttribute : attributes) {
-			cache += ";" + cmdAttribute.getAttribute();
+			cache += cmdAttribute.getAttribute();
 		}
 
 		if (cache.length() > 0)
@@ -61,6 +80,7 @@ public class PrettyPrintV2 {
 
 	// region Constructors
 	public PrettyPrintV2() {
+		attributes = new ArrayList<CMDAttribute>();
 	}
 
 	public PrettyPrintV2(PrettyColor2 foreground) {
@@ -97,33 +117,33 @@ public class PrettyPrintV2 {
 	}
 
 	// TODO restructure following code
-	public PrettyPrintV2 setForeground(PrettyColor2 foreground) {
-		this.foreground = foreground != null ? "2;" + formatColor(foreground) : null;
-		updateAttributeCache();
+	// public PrettyPrintV2 setForeground(PrettyColor2 foreground) {
+	// this.foreground = foreground != null ? "2;" + formatColor(foreground) : null;
+	// updateAttributeCache();
 
-		return this;
-	}
+	// return this;
+	// }
 
-	public PrettyPrintV2 setForeground(int foreground) {
-		this.foreground = ";5;" + foreground;
-		updateAttributeCache();
+	// public PrettyPrintV2 setForeground(int foreground) {
+	// this.foreground = ";5;" + foreground;
+	// updateAttributeCache();
 
-		return this;
-	}
+	// return this;
+	// }
 
-	public PrettyPrintV2 setBackground(PrettyColor2 background) {
-		this.background = background != null ? "2;" + formatColor(background) : null;
-		updateAttributeCache();
+	// public PrettyPrintV2 setBackground(PrettyColor2 background) {
+	// this.background = background != null ? "2;" + formatColor(background) : null;
+	// updateAttributeCache();
 
-		return this;
-	}
+	// return this;
+	// }
 
-	public PrettyPrintV2 setBackground(int background) {
-		this.background = ";5;" + background;
-		updateAttributeCache();
+	// public PrettyPrintV2 setBackground(int background) {
+	// this.background = ";5;" + background;
+	// updateAttributeCache();
 
-		return this;
-	}
+	// return this;
+	// }
 	// endregion
 
 	// region printers

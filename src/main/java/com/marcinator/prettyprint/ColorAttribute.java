@@ -54,12 +54,24 @@ public class ColorAttribute implements CMDAttribute {
 
 	@Override
 	public String getAttribute() {
-		String collector = "";
+		String collector = PrettyPrintV2.SEPARATOR + "38" + PrettyPrintV2.SEPARATOR + "2";
 		for (int i = 2; i >= 0; i--) {
 			int channel = (0xff << i * 8 & rgb) >> i * 8;
 			collector += PrettyPrintV2.SEPARATOR + channel;
 		}
 		return collector;
+	}
+
+	@Override
+	public boolean attributeMatch(CMDAttribute attribute) {
+		if (!(attribute instanceof ColorAttribute))
+			return false;
+		ColorAttribute colorAt = (ColorAttribute) attribute;
+
+		if (colorAt.isBackground() != this.isBackground())
+			return false;
+
+		return true;
 	}
 
 }

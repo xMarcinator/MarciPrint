@@ -40,7 +40,19 @@ public enum CMDAttributes implements CMDAttribute {
 
 	@Override
 	public String getAttribute() {
-		return code;
+		return PrettyPrintV2.SEPARATOR + code;
+	}
+
+	@Override
+	public boolean attributeMatch(CMDAttribute attribute) {
+		if (!(attribute instanceof CMDAttributes))
+			return false;
+		CMDAttributes colorAt = (CMDAttributes) attribute;
+
+		if (!this.equals(colorAt))
+			return false;
+
+		return true;
 	}
 
 }

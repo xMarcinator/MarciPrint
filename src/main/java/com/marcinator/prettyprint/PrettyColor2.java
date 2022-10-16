@@ -44,7 +44,7 @@ public class PrettyColor2 extends Color {
 		String collector = "#";
 
 		for (int i = 2; i >= 0; i++) {
-			collector += Integer.toHexString((RGB & 0xff) >> i * 8);
+			collector += Integer.toHexString((RGB >> i * 8) & 0xff);
 		}
 
 		return collector;

@@ -13,7 +13,11 @@ public class App {
 		Color foo = Color.decode("#2CC846");
 
 		ColorAttribute attribute = new ColorAttribute(foo);
+		ColorAttribute back = new ColorAttribute(200, 0, 0);
 
-		System.out.println(attribute.getAttribute());
+		PrettyPrintV2 pretty = new PrettyPrintV2();
+		pretty.addAttributes(attribute, back, CMDAttributes.BOLD);
+
+		pretty.print(attribute.getAttribute());
 	}
 }
